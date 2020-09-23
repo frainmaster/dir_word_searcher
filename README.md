@@ -11,4 +11,4 @@
     > - `S` - to search binary file
     > - `SC` - to perform case sensitive search and binary file search
     
-#Only works in Windows XP,8,8.1,10
+# Only works in Windows XP,8,8.1,10
