@@ -1,5 +1,5 @@
 # dir_word_searcher
-#### Search a given keyword in all files and subfolders in a given directory
+### Search a given keyword in all files and subfolders in a given directory
 
 1. insert a keyword to search the directory
 2. insert the directory to do the searching
@@ -15,7 +15,7 @@
     > - `S` - to search binary file
     > - `SC` - to perform case sensitive search and binary file search
 
-### Patch 1.1 201008
+#### Patch 1.1 201008
 - Added options J, F, M, N
 - Enable searching of multiple keywords
     
