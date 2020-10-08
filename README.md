@@ -12,10 +12,10 @@
     - N: to search multiple keywords within the document
     > sample search:
     > - `C` - to include case sensitive search
-    > - `S` - to search binary file
-    > - `SC` - to perform case sensitive search and binary file search
+    > - `B` - to search binary file
+    > - `BC` - to perform case sensitive search and binary file search
 
-#### Patch 1.1 201008
+#### Patch 1.1 8th Oct 2020
 - Added options J, F, M, N
 - Enable searching of multiple keywords
     
