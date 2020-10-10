@@ -9,7 +9,7 @@
     - J: to just show the files involved, no line number
     - F: to include search for file/dir names
     - M: to search multiple keywords in a single line
-    - N: to search multiple keywords within the document
+    - ~~N: to search multiple keywords within the document
     > sample search:
     > - `C` - to include case sensitive search
     > - `B` - to search binary file
@@ -18,5 +18,8 @@
 #### Patch 1.1 8th Oct 2020
 - Added options J, F, M, N
 - Enable searching of multiple keywords
-    
-#### Only works in Windows XP,8,8.1,10
+
+#### Patch 1.2 11th Oct 2020
+- Removed option N. If option M is not selected, the searching performs the search for multiple keywords within the document.
+- Added error handling for wrong file path
+- Added support for Linux
