@@ -9,7 +9,6 @@
     - J: to just show the files involved, no line number
     - F: to include search for file/dir names
     - M: to search multiple keywords in a single line
-    - ~~N: to search multiple keywords within the document
     > sample search:
     > - `C` - to include case sensitive search
     > - `B` - to search binary file
