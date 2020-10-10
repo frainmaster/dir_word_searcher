@@ -1,39 +1,46 @@
 import os
 
 def readfile(path, i):
-	with open(path + '\\' + i, 'r') as file:
+	with open(path + '/' + i, 'r') as file:
+		k = [ii if 'c' in option else ii.lower() for ii in keyword]
 		for a, lines in enumerate(file):
-			k, l = [i.lower() for i in keyword], lines.lower()
-			if 'c' in option:
-				k, l = [i for i in keyword], lines
-			kk = [i for i in k]
-			if 'm' in option:
-				if all(i in l for i in k):
+			l = lines if 'c' in option else lines.lower()
+			if len(keyword) > 1 and 'm' in option:
+				if all(ii in l for ii in k):
 					if 'j' in option:
-						print('file: {}'.format((path+'\\'+i).replace(oriPath, '')))
+						print('file: {}'.format((path+'/'+i).replace(oriPath, '')))
 						break
-					print('file: {}, line: {}'.format((path+'\\'+i).replace(oriPath, ''), a+1))
-			elif 'n' in option:
-				if any(i in l for i in k):
-					kk = [i for i in kk if i not in l]
-				if len(kk) == 0:
-					print('file: {}'.format((path+'\\'+i).replace(oriPath, '')))
+					print('file: {}, line: {}'.format((path+'/'+i).replace(oriPath, ''), a+1))
+			else:
+				if any(j in l for j in k):
+					k = [j for j in k if j not in l]
+				if len(k) == 0:
+					print('file: {}, line: {}'.format((path+'/'+i).replace(oriPath, ''), a+1))
 					break
 
 def cdfolder(path):
-	for i in os.listdir(path):
-		if 'f' in option:
-			if any(j in i for j in keyword):
-				print(path + '\\' + i)
-		try:
-			if os.path.isfile(path + '\\' + i):
-				readfile(path, i)
-			else:
-				cdfolder(path + '\\' + i)
-		except UnicodeDecodeError:
-			if 'b' in option:
-				print('Problem reading {} or it is a binary file'.format((path+'\\'+i).replace(oriPath, '')))
+	try:
+		for i in os.listdir(path):
+			if 'f' in option:
+				if any(j.lower() in i.lower() for j in keyword):
+					print('path: ' + i)
+			try:
+				if os.path.isfile(path + '/' + i):
+					readfile(path, i)
+				else:
+					cdfolder(path + '/' + i)
+			except UnicodeDecodeError:
+				if 'b' in option:
+					print('Problem reading {} or it is a binary file'.format((path+'/'+i).replace(oriPath, '')))
+				pass
+	except OSError:
+		print('path not found. please insert a proper path. Type "S" to start again.')
+		path = input()
+		oriPath = path
+		if path.lower() == 's':
 			pass
+		else:
+			cdfolder(path)
 
 if __name__ == '__main__':
 	while True:
@@ -61,7 +68,6 @@ if __name__ == '__main__':
 		print('- (F) include search for file/dir names')
 		if len(keyword) > 1:
 			print('- (M) search multiple keywords in a single line')
-			print('- (N) search multiple keywords within the document')
 		print('Press enter if not applicable')
 		option = input().lower()
 
