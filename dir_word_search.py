@@ -34,7 +34,7 @@ def cdfolder(path):
 					print('Problem reading {} or it is a binary file'.format((path+'/'+i).replace(oriPath, '')))
 				pass
 	except OSError:
-		print('path not found. please insert a proper path. Type "S" to start again.')
+		print('path not found. please insert a proper path. Type "S" to start again or CTRL+C to end.')
 		path = input()
 		oriPath = path
 		if path.lower() == 's':
