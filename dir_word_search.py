@@ -24,12 +24,13 @@ def readfile(path, i):
 def cdfolder(path):
     try:
         for i in os.listdir(path):
-            if 'f' in option:
+            if 'f' in option or 'g' in option:
                 if any(j.lower() in i.lower() for j in keyword):
-                    print('path: ' + i)
+                    print('path: ' + path + '/' + i)
             try:
                 if os.path.isfile(path + '/' + i):
-                    readfile(path, i)
+                    if 'g' not in option:
+                        readfile(path, i)
                 else:
                     cdfolder(path + '/' + i)
             except UnicodeDecodeError:
@@ -87,6 +88,7 @@ if __name__ == '__main__':
         print('- (B) show if binary files')
         print('- (J) just show the files involved, no line number')
         print('- (F) include search for file/dir names')
+        print('- (G) search for file/dir names ONLY')
         if len(keyword) > 1:
             print('- (M) search multiple keywords in a single line')
         print('Press enter if not applicable')
