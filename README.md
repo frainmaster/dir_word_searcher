@@ -9,6 +9,7 @@
     - B: to include searching for binary files, otherwise ignored
     - J: to just show the files involved, no line number
     - F: to include search for file/dir names
+    - G: to search for file/dir names ONLY
     - M: to search multiple keywords in a single line. Only appear if 2 or more words given.
     > sample search:
     > - `C` - to include case sensitive search
@@ -38,3 +39,6 @@
 #### Patch 1.3 4th Mar 2021
 - Added functionality to be accessible from CLI without the need for the program to be executed.
 - Implemented code linting onto main file using [pycodestyle](https://pypi.org/project/pycodestyle/), ignoring rule E501.
+
+#### Patch 1.4 25th Apr 2021
+- Added option G: to search for file or directory names only, without going into files.
